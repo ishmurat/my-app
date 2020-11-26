@@ -2,14 +2,15 @@ import React from 'react';
 import s from './Navbar.module.css';
 import n from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
-const Navbar = (props) => {
-  const photoIconElements = props.state.sideBar.map((el) => {
-    return (
-      <div className={n.photo}>
-        <img src={el.photo} />
-      </div>
-    );
-  });
+const Navbar = () => {
+  // const photoIconElements = props._state.sideBar.map((el) => 
+  // {
+  //   return (
+  //     <div className={n.photo}>
+  //       <img src={el.photo} />
+  //     </div>
+  //   );
+  // };
   return <nav className={s.nav}>
     <div className={s.item}>
       <NavLink to='/profile' activeClassName={s.activeLink}>Profile</NavLink></div>
@@ -22,7 +23,7 @@ const Navbar = (props) => {
       <NavLink to='/music' activeClassName={s.activeLink}>Music</NavLink></div>
     <p>Friends: </p>
      <div className={n.photoIconElements}>
-                {photoIconElements}
+               <h1>Elements</h1>
             </div>
   </nav >
 }

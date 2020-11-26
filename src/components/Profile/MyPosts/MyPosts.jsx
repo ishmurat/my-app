@@ -1,19 +1,23 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
+import { addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state'; // in 39 lesson
 const MyPosts = (props) => {
+  
+ debugger;
+  
   let postElements =
     props.posts.map(p => <Post message={p.message} likesCount={p.likesCount} />);
 
   let newPostElement = React.createRef(); // about this in 31 lesson at 14 minute
 
   let addPost = () => {
-    let text = newPostElement.current.value; // about this in 31 lesson at 16 minute
-    props.addPost(text);
+    props.dispatch(addPostActionCreator());  // in 39 lesson
   }
   let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
+    let text = newPostElement.current.value; 
+    let action = updateNewPostTextActionCreator(text);
+    props.dispatch(action);
   }
 
   return (
